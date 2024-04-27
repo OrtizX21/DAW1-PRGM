@@ -23,50 +23,42 @@ public class Alarma {
 
 	Alarma(int hour, int minutes) {
 
-		if (hour == 24 && minutes >= 0 || minutes <= 59) {
+		if(hour == 23 && minutes == 59) {
 			this.hora = 0;
-			this.minutos = minutes;
+			this.minutos = 0;
 		}
-		if (hour >= 0 && hour <= 23 && minutes >= 0 && minutes <= 59) {
+		else if(hour >= 0 || hour <= 22 && minutes >= 0 && minutes <= 58) {
 			this.hora = hour;
 			this.minutos = minutes;
 		}
-		if (hour > 24 && minutes >= 0 || minutes > 60) {
+		else {
 			System.out.println("Introduzca una hora y unos minutos validos (HORAS 0 Y 23), (MINUTOS 0 Y 59)" + "\n");
-		}
 
+		}
 	}
 	
-	int avanzarTiempo(int cant) {
+	int avanzarTiempo(int minutes) {
 		
-		if (this.hora >= 0 || this.hora <= 22 && this.minutos >= 0 || this.minutos <= 59) {
-			this.minutos += cant;
+		if(minutes >= 0 || minutes <= 58) {
+			this.minutos += minutes;
 		}
-		//else if(this.hora == 23 && this.minutos == 60) {
-			//this.hora = 0;
-			//this.minutos = 0;
-		//}
-		//else if(this.hora >= 0 || this.hora <= 22 && this.minutos == 60) {
-			//this.hora++;
-			//this.minutos = 0;
-		//}
-		
-		
+		if (minutes == 59) {
+			minutes = 0;
+			this.hora++;
+			this.minutos = minutes;
+		}
 		return this.minutos;
 	}
 
-	int retrocederTiempo(int cant) {
+	int retrocederTiempo(int minutes) {
 		
-		if (this.minutos >= 0 || this.minutos <= 59) {
-			this.minutos -= cant;
+		if(minutes >= 0 || minutes <= 58) {
+			this.minutos -= minutes;
 		}
-		else if(this.hora == 23 && this.minutos == 60) {
-			this.hora = 0;
-			this.minutos = 0;
-		}
-		else if(this.hora >= 0 || this.hora <= 22 && this.minutos == 60) {
-			this.hora++;
-			this.minutos = 0;
+		if (minutes == 59) {
+			minutes = 0;
+			this.hora--;
+			this.minutos = minutes;
 		}
 		return this.minutos;
 	}
