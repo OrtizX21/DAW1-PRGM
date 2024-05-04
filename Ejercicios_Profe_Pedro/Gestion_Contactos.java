@@ -16,10 +16,10 @@ public class Gestion_Contactos {
 	Contacto [] agregarContacto(Contacto agregar) {
 		
 		boolean agregado = false;
-		if(this._contactos.length >= 0) {
+		if(this._numContactos < this._maxContactos) {
 			agregado = true;
 			this._contactos = Arrays.copyOf(this._contactos, this._contactos.length + 1);
-			this._contactos[_numContactos] = agregar;
+			this._contactos[this._numContactos] = agregar;
 			this._numContactos++;
 			System.out.println("El contacto ha sido agregado al telefono? " + agregado + "\n");
 		}
@@ -39,15 +39,40 @@ public class Gestion_Contactos {
 		return indice;
 	}
 	
-	String buscarContactoPorNombre(String name) {
+	String buscarContactoPorNombre (String nombre) {
 		
-		boolean encontrado = false;
+		for(int i = 0; i <= this._numContactos - 1;  i++) {
+			if(this._contactos[i].getNombre().equals(nombre)) {
+				System.out.println("Buscando por nombre: " + this._contactos[i] + " Encontrado en la posicion: " + i + "\n");
+			}
+			else if (this._numContactos > this._maxContactos) {
+				Contacto vacio[] = new Contacto[0];
+				System.out.println("No se encontro el apellido: " + Arrays.toString(vacio));
+			}
+		}
+		return nombre;
+	}
+	
+	String buscarContactoPorApellido (String apellido) {
 		
-		
-		
-		
-		
-		return name;
+		int posicion = 0;
+		while(posicion < this._contactos.length && this._contactos.equals(apellido)) {
+			posicion++;
+		}
+		if(posicion <= this._contactos.length) {
+			System.out.println("Buscando por apellido: " + this._contactos[posicion] + " Encontrado en la posicion: " + posicion + "\n");
+		}
+			else {
+				Contacto vacio[] = new Contacto[0];
+				System.out.println("No se encontro el apellido: " + Arrays.toString(vacio));
+			}
+		return apellido;
+	}
+
+	Contacto [] actualizarContacto(Contacto actualizar, int posicion) {
+		this._contactos[posicion] = actualizar;
+		System.out.println("Contacto actualizado: " + Arrays.toString(this._contactos) + "\n");
+		return this._contactos;
 	}
 	
 	@Override
@@ -55,7 +80,5 @@ public class Gestion_Contactos {
 		return "Gestion_Contactos [_contactos = " + Arrays.toString(_contactos) + ", contacto1 = "
 				+ Arrays.toString(contacto1) + ", _numContactos = " + _numContactos + ", _maxContactos = " + _maxContactos
 				+ "]";
-	}
-	
-	
+	}	
 }
