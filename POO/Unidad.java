@@ -1,3 +1,3 @@
 package POO;
 
-public enum Unidad {CENTIMETROS, METROS}
+public enum Unidad {CM, M}
