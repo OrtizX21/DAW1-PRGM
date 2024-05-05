@@ -6,7 +6,7 @@ public class Caja {
 	private int alto;
 	private int fondo;
 	private String etiqueta;
-	Unidad unidad;
+	private Unidad unidad;
 	
 	Caja(int anchura, int altura, int capacidad, Unidad medida){
 		this.ancho = anchura;
@@ -16,14 +16,28 @@ public class Caja {
 		this.etiqueta = "";
 	}
 
+	@SuppressWarnings("static-access")
 	double getVolumen() {
-		double volumen = (this.ancho * this.alto * this.fondo / 1000);
-		System.out.println("Volumen de la caja: " + volumen + " " + this.unidad + "\n");
-		return volumen;
+		
+		double volumenCubico = 0.0;
+		
+		if(this.unidad == this.unidad.CM) {
+			volumenCubico = (this.ancho * this.alto * this.fondo / 1000);
+		}
+			else if (this.unidad == this.unidad.M) {
+				volumenCubico = (this.ancho * this.alto * this.fondo);
+			}
+			return volumenCubico;
 	}
 	
 	void setEtiqueta(String etiqueta) {
-		etiqueta = this.etiqueta;
+		
+		if(etiqueta.length() <= 50) {
+			this.etiqueta = etiqueta;
+		}
+			else {
+				this.etiqueta = etiqueta.substring(0, 50);
+			}
 	}
 
 	@Override
