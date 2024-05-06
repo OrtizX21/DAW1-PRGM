@@ -8,10 +8,8 @@ public class Rectangulo extends Poligono {
 	}
 
 	@Override
-	void area() {
+	double area() {
 		// TODO Auto-generated method stub
-		double formula = (this.base * this.altura);
-		System.out.println("Area del Rectángulo: " + formula + "\n");
+		return (this.base * this.altura);
 	}
-
 }
