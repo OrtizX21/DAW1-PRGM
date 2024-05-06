@@ -9,6 +9,5 @@ public abstract class Poligono {
 		this.altura = heigth;
 		this.base = weight;
 	}
-	
-	abstract void area ();
+	abstract double area ();
 }
