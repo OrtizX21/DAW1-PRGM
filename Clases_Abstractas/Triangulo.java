@@ -6,11 +6,9 @@ public class Triangulo extends Poligono {
 		super(heigth, weight);
 		// TODO Auto-generated constructor stub
 	}
-
 	@Override
-	void area() {
+	double area() {
 		// TODO Auto-generated method stub
-		double formula = (this.base * this.altura / 2);
-		System.out.println("Area del Tríangulo: " + formula + "\n");
+		return (this.base * this.altura / 2);
 	}
 }
