@@ -22,7 +22,7 @@ public class Caja {
 		double volumenCubico = 0.0;
 		
 		if(this.unidad == this.unidad.CM) {
-			volumenCubico = (this.ancho * this.alto * this.fondo / 1000);
+			volumenCubico = (this.ancho * this.alto * this.fondo / 1000000);
 		}
 			else if (this.unidad == this.unidad.M) {
 				volumenCubico = (this.ancho * this.alto * this.fondo);
