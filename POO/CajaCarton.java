@@ -1,22 +1,21 @@
 package POO;
 
 public class CajaCarton extends Caja {
-	
+
 	CajaCarton(int anchura, int altura, int fondo) {
 		super(anchura, altura, fondo, Unidad.CM);
+		// TODO Auto-generated constructor stub
 	}
 	
-	double volumenCaja() {
+	double volumenCarton() {
 		
-		double volumenReal;
-		volumenReal = (super.getVolumen() * 0.8);
-        return volumenReal;		 
+		double volumen = (super.getVolumen() / 0.8);
+		return volumen;
 	}
 	
-	double superficieTotal() {
+	double superficieCarton() {
 		
-		double superficie;
-		superficie = (super.getAncho() + super.getFondo() + super.getFondo() + super.getAlto() + super.getAlto() + super.getAncho() * 2); 
+		double superficie = (2 * (super.getAncho() * super.getFondo() + super.getFondo() * super.getAlto() + super.getAncho() * super.getAlto()));
 		return superficie;
 	}
 }
