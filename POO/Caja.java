@@ -29,12 +29,12 @@ public class Caja {
 	}
 
 	@SuppressWarnings("static-access")
-	double getVolumen() {
+	double calcularVolumen() {
 		
 		double volumenCubico = 0.0;
 		
 		if(this.unidad == this.unidad.CM) {
-			volumenCubico = (this.ancho * this.alto * this.fondo / 1000000);
+			volumenCubico = (this.ancho * this.alto * this.fondo / 1000);
 		}
 			else if (this.unidad == this.unidad.M) {
 				volumenCubico = (this.ancho * this.alto * this.fondo);
@@ -42,12 +42,16 @@ public class Caja {
 			return volumenCubico;
 	}
 	
+	double getVolumen() {
+		return this.calcularVolumen();
+	}
+	
 	void setEtiqueta(String etiqueta) {
 		
 		if(etiqueta.length() <= 50) {
 			this.etiqueta = etiqueta;
 		}
-			else if (etiqueta.length() >= 50) {
+			else {
 				this.etiqueta = etiqueta.substring(0, 50);
 			}
 	}
