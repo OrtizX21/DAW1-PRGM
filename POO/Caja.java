@@ -8,12 +8,24 @@ public class Caja {
 	private String etiqueta;
 	private Unidad unidad;
 	
-	Caja(int anchura, int altura, int capacidad, Unidad medida){
+	Caja(int anchura, int altura, int fondo, Unidad medida){
 		this.ancho = anchura;
 		this.alto = altura;
-		this.fondo = capacidad;
+		this.fondo = fondo;
 		this.unidad = medida;
 		this.etiqueta = "";
+	}
+	
+	int getAncho() {
+		return this.ancho;
+	}
+	
+	int getAlto() {
+		return this.alto;
+	}
+	
+	int getFondo() {
+		return this.fondo;
 	}
 
 	@SuppressWarnings("static-access")
@@ -35,7 +47,7 @@ public class Caja {
 		if(etiqueta.length() <= 50) {
 			this.etiqueta = etiqueta;
 		}
-			else {
+			else if (etiqueta.length() >= 50) {
 				this.etiqueta = etiqueta.substring(0, 50);
 			}
 	}
