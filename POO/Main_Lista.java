@@ -5,9 +5,10 @@ public class Main_Lista {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		Lista Lista1, Lista2;
+		Lista Lista1, Lista2, Lista3;
 		Lista1 = new Lista();
 		Lista2 = new Lista();
+		Lista3 = new Lista();
 
 		//INSERTANDO AL PRINCIPIO.
 		Lista1.InsertarPrincipio(Integer.valueOf(99));
@@ -55,10 +56,23 @@ public class Main_Lista {
 		Lista1.InsertarFinalLista(Lista2);
 		Lista1.InsertarFinal(Integer.valueOf(11));		
 		Lista1.InsertarFinal(Integer.valueOf(13));
-		Lista1.Mostrar();
 		System.out.println();
 		
 		//METODO LISTA CONCATENADA LISTA2.
 		Lista.concatena(Lista1, Lista2);
+		
+		//METODO TO STRING PARA MOSTRAR LAS LISTAS.
+		System.out.println(Lista1);
+		
+		// CREO LA LISTA A COMPARAR.
+		Lista3.InsertarPrincipio(55);
+		Lista3.InsertarFinal(55);
+		Lista3.InsertarFinal(11);
+		Lista3.InsertarFinal(13);
+		//Lista3.InsertarFinal(13);
+		System.out.println(Lista3);
+		
+		//METODO PARA COMPARAR SI DOS LISTAS SON IGUALES.
+		boolean resultado = Lista.iguales(Lista1, Lista3); System.out.println("Las listas son iguales? " + resultado);
 	}
 }
