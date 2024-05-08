@@ -132,14 +132,14 @@ public class Lista {
 		lista3 = new Lista();
 		lista3.Tabla1 = Arrays.copyOf(lista1.Tabla1, lista1.Tabla1.length + lista2.Tabla1.length);
 		System.arraycopy(lista2.Tabla1, 0, lista3.Tabla1, lista1.Tabla1.length, lista2.Tabla1.length);
-		System.out.println("Lista Concatenada: " + Arrays.toString(lista3.Tabla1));
+		System.out.println("Lista Concatenada: " + Arrays.toString(lista3.Tabla1) + "\n");
 		return lista3;
 	
 	}
 
 	public int numeroElementos() {
 
-		System.out.println("Numero De Elementos De La Lista: " + Tabla1.length + ".");
+		System.out.println("Numero De Elementos De La Lista: " + Tabla1.length + "." + "\n");
 		return Tabla1.length;
 	}
 
@@ -149,4 +149,29 @@ public class Lista {
 		System.out.println("Longitud De La Tabla: " + Tabla1.length);
 		System.out.println("Elementos Insertados En La Lista: " + Insertados);
 	}
+	
+	static boolean iguales (Lista lista1, Lista lista2) {
+			
+		boolean igual = false;
+		
+			for(int i = 0; i < lista1.Tabla1.length; i++) {
+				
+				for(int j = i + 1; j < lista2.Tabla1.length; j++) {
+					
+					if(lista1.Tabla1[i] == lista2.Tabla1[j] || lista2.Tabla1[j] == lista1.Tabla1[i] && lista1.Tabla1.length > lista2.Tabla1.length || lista2.Tabla1.length > lista1.Tabla1.length) {
+						igual = false;
+					}
+					
+					else if(lista1.Tabla1[i] == lista2.Tabla1[j] || lista2.Tabla1[j] == lista1.Tabla1[i] && lista1.Tabla1.length == lista2.Tabla1.length || lista2.Tabla1.length == lista1.Tabla1.length) { 
+						igual = true; 
+					}	 
+				}
+			}
+			return igual;
+		}
+
+	@Override
+	public String toString() {
+		return "Lista [Tabla1=" + Arrays.toString(Tabla1) + ", Insertados=" + Insertados + "]" + "\n";
+	}	
 }
