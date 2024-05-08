@@ -9,6 +9,6 @@ public class Triangulo extends Poligono {
 	@Override
 	double area() {
 		// TODO Auto-generated method stub
-		return (this.base * this.altura / 2);
+		return (this.getBase() * this.getAltura() / 2);
 	}
 }
