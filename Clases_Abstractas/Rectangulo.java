@@ -9,7 +9,7 @@ public class Rectangulo extends Poligono {
 
 	@Override
 	double area() {
-		// TODO Auto-generated method stub
-		return (this.base * this.altura);
+		// TODO Auto-generated method stub		
+		return (this.getBase() * this.getAltura());
 	}
 }
