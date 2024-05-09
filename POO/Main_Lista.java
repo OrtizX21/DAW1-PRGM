@@ -62,7 +62,7 @@ public class Main_Lista {
 		Lista.concatena(Lista1, Lista2);
 		
 		//METODO TO STRING PARA MOSTRAR LAS LISTAS.
-		System.out.println(Lista1);
+		System.out.println("Mostrando la lista 3 con el toString: " + Lista1.toString());
 		
 		// CREO LA LISTA A COMPARAR.
 		Lista3.InsertarPrincipio(55);
@@ -70,9 +70,9 @@ public class Main_Lista {
 		Lista3.InsertarFinal(11);
 		Lista3.InsertarFinal(13);
 		//Lista3.InsertarFinal(13);
-		System.out.println(Lista3);
+		System.out.println("Mostrando la lista 3 con el toString: " + Lista3.toString());
 		
 		//METODO PARA COMPARAR SI DOS LISTAS SON IGUALES.
-		boolean resultado = Lista.iguales(Lista1, Lista3); System.out.println("Las listas son iguales? " + resultado);
+		boolean resultado = Lista.iguales(Lista3, Lista1); System.out.println("Las listas son iguales? " + resultado);
 	}
 }
