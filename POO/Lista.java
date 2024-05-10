@@ -17,7 +17,8 @@ public class Lista {
 		Tabla1 = Arrays.copyOf(Tabla1, Tabla1.length + 1);
 		System.arraycopy(Tabla1, 0, Tabla1, 0, Tabla1.length);
 		Tabla1[0] = Nuevo;
-		Insertados++;	
+		Insertados++;
+		
 	}
 
 	void InsertarFinal(Integer Nuevo) {
@@ -25,6 +26,7 @@ public class Lista {
 		Tabla1 = Arrays.copyOf(Tabla1, Tabla1.length + 1);
 		Tabla1[Tabla1.length - 1] = Nuevo;
 		Insertados++;
+
 	}
 
 	void InsertarFinalLista(Lista otraLista) {
@@ -37,14 +39,17 @@ public class Lista {
 	void InsertarDeseado(int Posicion, Integer Nuevo) {
 
 		if (Posicion < 0 || Posicion > Tabla1.length) {
+			
 			System.out.println("Valor A Insertar Fuera De Rango.");
 			System.exit(0);
 		}
+		
 		Tabla1 = Arrays.copyOf(Tabla1, Tabla1.length + 1);
 		System.arraycopy(Tabla1, Posicion, Tabla1, Posicion, Tabla1.length - Posicion);
 		Tabla1[Posicion] = Nuevo;
 		Tabla1 = Arrays.copyOf(Tabla1, Tabla1.length - 1);
 		Insertados++;
+
 	}
 
 	Integer Eliminar(int Indice) {
@@ -52,19 +57,25 @@ public class Lista {
 		Integer Eliminar = null;
 		int LongitudTabla = Tabla1.length;
 
+		
 		if (Indice >= 0 && Indice <= LongitudTabla) {
 
 			Eliminar = Tabla1[Indice];
+
 			for (int i = Indice; i < LongitudTabla - 1; i++) {
+
 				Tabla1[i - 1] = Tabla1[i];
 			}
 		}
+		
 		else if (Indice < 0 || Indice > LongitudTabla) {
 
 			System.out.println("NO SE PUEDE ELIMINAR ESTE VALOR.");
 		}
+		
 		Tabla1 = Arrays.copyOf(Tabla1, Tabla1.length - 1);
 		Insertados--;
+		
 		return Eliminar;
 	}
 
@@ -73,14 +84,20 @@ public class Lista {
 		int Indice = 0;
 
 		while (Indice < Tabla1.length && Tabla1[Indice] != Valor) {
+			
 			Indice++;
 		}
+
 		if (Indice <= Tabla1.length) {
+
 			System.out.println("Posicion Del Valor Buscado: " + Indice + ".");
 		}
+
 		else {
+
 			System.out.println("No Se Encontro El Valor.");
 		}
+
 		return Indice;
 	}
 
@@ -91,15 +108,20 @@ public class Lista {
 		int Insertar = -Posicion - 1;
 
 		while (Posicion < Elementos && Tabla1[Posicion] != claveBusqueda) {
+
 			Posicion++;
 		}
 
 		if (Posicion < Elementos) {
+
 			System.out.println("El Valor Que Busca Esta En La Posicion: " + Posicion + ".");
 		}
+
 		else {
+
 			System.out.println("No Se Encontro El Valor En La Tabla: " + Insertar + ".");
 		}
+
 		return claveBusqueda;
 	}
 
@@ -112,25 +134,47 @@ public class Lista {
 		System.arraycopy(lista2.Tabla1, 0, lista3.Tabla1, lista1.Tabla1.length, lista2.Tabla1.length);
 		System.out.println("Lista Concatenada: " + Arrays.toString(lista3.Tabla1) + "\n");
 		return lista3;
+	
 	}
 
 	public int numeroElementos() {
+
 		System.out.println("Numero De Elementos De La Lista: " + Tabla1.length + "." + "\n");
 		return Tabla1.length;
 	}
 
 	public void Mostrar() {
+
 		System.out.println("Valores De La Lista: " + Arrays.toString(Tabla1));
 		System.out.println("Longitud De La Tabla: " + Tabla1.length);
 		System.out.println("Elementos Insertados En La Lista: " + Insertados);
 	}
 	
-	static boolean iguales (Lista lista1, Lista lista2) {
+	@Override
+	public boolean equals (Object obj) {
 		
-		boolean igual = false;
-			for(int i = 0; i < lista1.Tabla1.length; i++) {
+		boolean iguales = true;
+		
+		Lista lista1 = (Lista)obj;
+		
+		for(int i = 0; i < lista1.Tabla1.length; i++) {
+			
+			if((lista1.Tabla1[i] != this.Tabla1[i] && lista1.Tabla1.length > this.Tabla1.length || this.Tabla1.length < lista1.Tabla1.length) || (this.Tabla1[i] != lista1.Tabla1[i] || this.Tabla1.length > lista1.Tabla1.length || lista1.Tabla1.length < this.Tabla1.length)) {
+				iguales = false;
+			}
+		}
+		
+		return iguales;
+	}
 	
+	static boolean iguales (Lista lista1, Lista lista2) {
+			
+		boolean igual = false;
+		
+			for(int i = 0; i < lista1.Tabla1.length; i++) {
+				
 				for(int j = i + 1; j < lista2.Tabla1.length; j++) {
+					
 					if(lista1.Tabla1[i] == lista2.Tabla1[j] || lista2.Tabla1[j] == lista1.Tabla1[i] && lista1.Tabla1.length > lista2.Tabla1.length || lista2.Tabla1.length > lista1.Tabla1.length) {
 						igual = false;
 					}
@@ -148,8 +192,8 @@ public class Lista {
 		String resultado = "";
 		for(int i = 0; i < Tabla1.length; i++) {
 			
-			resultado = resultado + Tabla1[i];
+			resultado = resultado + " " + Tabla1[i] ;
 		}
-		return resultado + "\n";		
+		return resultado + "\n";
 	}	
 }
