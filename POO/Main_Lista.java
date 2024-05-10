@@ -73,6 +73,10 @@ public class Main_Lista {
 		System.out.println("Mostrando la lista 3 con el toString: " + Lista3.toString());
 		
 		//METODO PARA COMPARAR SI DOS LISTAS SON IGUALES.
-		boolean resultado = Lista.iguales(Lista3, Lista1); System.out.println("Las listas son iguales? " + resultado);
+		boolean resultado = Lista.iguales(Lista3, Lista1); 
+		System.out.println("Las listas son iguales? " + resultado + "\n");
+		
+		boolean iguales = Lista1.equals(Lista3);
+		System.out.println("Son las mismas listas? " + iguales + "\n");
 	}
 }
